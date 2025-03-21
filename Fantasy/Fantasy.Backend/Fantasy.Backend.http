@@ -1,6 +1,6 @@
 @Fantasy.Backend_HostAddress = http://localhost:5193
 
-GET {{Fantasy.Backend_HostAddress}}/weatherforecast/
+GET {{Fantasy.Backend_HostAddress}}/Fantasy.Backend/
 Accept: application/json
 
 ###
