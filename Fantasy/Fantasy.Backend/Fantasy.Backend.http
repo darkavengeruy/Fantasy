@@ -1,6 +1,6 @@
-@Fantasy.Backend_HostAddress = http://localhost:5193
+@Fantasy.Backend_HostAddress = http://localhost:5239
 
-GET {{Fantasy.Backend_HostAddress}}/Fantasy.Backend/
+GET {{Fantasy.Backend_HostAddress}}/Fantasy/
 Accept: application/json
 
 ###

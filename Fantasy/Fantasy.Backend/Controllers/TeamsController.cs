@@ -7,11 +7,11 @@ namespace Fantasy.Backend.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class CountriesController : ControllerBase
+public class TeamsController : ControllerBase
 {
     private readonly DataContext _context;
 
-    public CountriesController(DataContext context)
+    public TeamsController(DataContext context)
     {
         _context = context;
     }
@@ -19,13 +19,13 @@ public class CountriesController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAsync()
     {
-        return Ok(await _context.Countries.ToListAsync());
+        return Ok(await _context.Teams.ToListAsync());
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetAsync(int id)
     {
-        var country = await _context.Countries.FirstOrDefaultAsync(c => c.Id == id);
+        var country = await _context.Teams.FirstOrDefaultAsync(c => c.Id == id);
         if (country == null)
         {
             return NotFound();
@@ -35,32 +35,32 @@ public class CountriesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> PostAsync(Country country)
+    public async Task<IActionResult> PostAsync(Team team)
     {
-        _context.Add(country);
+        _context.Add(team);
         await _context.SaveChangesAsync();
-        return Ok(country);
+        return Ok(team);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
-        var country = await _context.Teams.FirstOrDefaultAsync(c => c.Id == id);
-        if (country == null)
+        var team = await _context.Teams.FirstOrDefaultAsync(c => c.Id == id);
+        if (team == null)
         {
             return NotFound();
         }
 
-        _context.Remove(country);
+        _context.Remove(team);
         await _context.SaveChangesAsync();
         return NoContent();
     }
 
     [HttpPut]
-    public async Task<IActionResult> PutAsync(Country country)
+    public async Task<IActionResult> PutAsync(Team team)
     {
-        _context.Update(country);
+        _context.Update(team);
         await _context.SaveChangesAsync();
-        return Ok(country);
+        return Ok(team);
     }
 }
