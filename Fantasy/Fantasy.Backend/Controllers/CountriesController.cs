@@ -45,7 +45,7 @@ public class CountriesController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteAsync(int id)
     {
-        var country = await _context.Teams.FirstOrDefaultAsync(c => c.Id == id);
+        var country = await _context.Countries.FindAsync(id);
         if (country == null)
         {
             return NotFound();

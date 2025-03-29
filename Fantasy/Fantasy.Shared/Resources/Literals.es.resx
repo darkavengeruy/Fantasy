@@ -117,14 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Subtitle" xml:space="preserve">
+    <value>Aplicación de Pronósticos futboleros</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Polla</value>
+  </data>
   <data name="About" xml:space="preserve">
     <value>Acerca de</value>
   </data>
   <data name="Countries" xml:space="preserve">
     <value>Paises</value>
-  </data>
-  <data name="Country" xml:space="preserve">
-    <value>Pais</value>
   </data>
   <data name="Delete" xml:space="preserve">
     <value>Borrar</value>
@@ -138,26 +141,23 @@
   <data name="Image" xml:space="preserve">
     <value>Imagen</value>
   </data>
-  <data name="Loading" xml:space="preserve">
-    <value>Cargando...</value>
-  </data>
-  <data name="New" xml:space="preserve">
-    <value>Nuevo</value>
-  </data>
   <data name="NoRecords" xml:space="preserve">
     <value>No hay registros para mostrar...</value>
-  </data>
-  <data name="Subtitle" xml:space="preserve">
-    <value>Aplicación de pronosticos futboleros</value>
-  </data>
-  <data name="Subtitle1" xml:space="preserve">
-    <value>Aplicación de Pronósticos futboleros</value>
   </data>
   <data name="Teams" xml:space="preserve">
     <value>Equipos</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Polla</value>
+  <data name="New" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Pais</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="Confirmation" xml:space="preserve">
+    <value>Confirmación</value>
   </data>
   <data name="LeaveAndLosseChanged" xml:space="preserve">
     <value>¿Deseas abandonar la pagina y perder los cambios?</value>
@@ -188,5 +188,8 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Si</value>
+  </data>
+  <data name="RecordCreatedOk" xml:space="preserve">
+    <value>Registro creado con éxito</value>
   </data>
 </root>

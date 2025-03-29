@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Fantasy.Frontend.Resources {
+namespace Fantasy.Shared.Resources {
     using System;
     
     
@@ -22,7 +22,7 @@ namespace Fantasy.Frontend.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Literals {
+    internal class Literals {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,10 +36,10 @@ namespace Fantasy.Frontend.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Fantasy.Frontend.Resources.Literals", typeof(Literals).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Fantasy.Shared.Resources.Literals", typeof(Literals).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -51,7 +51,7 @@ namespace Fantasy.Frontend.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
-        public static string About {
+        internal static string About {
             get {
                 return ResourceManager.GetString("About", resourceCulture);
             }
@@ -72,16 +72,25 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        public static string Cancel {
+        internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirmation.
+        /// </summary>
+        internal static string Confirmation {
+            get {
+                return ResourceManager.GetString("Confirmation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Countries.
         /// </summary>
-        public static string Countries {
+        internal static string Countries {
             get {
                 return ResourceManager.GetString("Countries", resourceCulture);
             }
@@ -90,7 +99,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Country.
         /// </summary>
-        public static string Country {
+        internal static string Country {
             get {
                 return ResourceManager.GetString("Country", resourceCulture);
             }
@@ -99,7 +108,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Create.
         /// </summary>
-        public static string Create {
+        internal static string Create {
             get {
                 return ResourceManager.GetString("Create", resourceCulture);
             }
@@ -108,7 +117,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
-        public static string Delete {
+        internal static string Delete {
             get {
                 return ResourceManager.GetString("Delete", resourceCulture);
             }
@@ -117,7 +126,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Are you sure to delete the {0}:{1}?.
         /// </summary>
-        public static string DeleteConfirm {
+        internal static string DeleteConfirm {
             get {
                 return ResourceManager.GetString("DeleteConfirm", resourceCulture);
             }
@@ -126,7 +135,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
-        public static string Edit {
+        internal static string Edit {
             get {
                 return ResourceManager.GetString("Edit", resourceCulture);
             }
@@ -135,7 +144,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
-        public static string Error {
+        internal static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
             }
@@ -144,7 +153,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
-        public static string Home {
+        internal static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
             }
@@ -153,16 +162,25 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Image.
         /// </summary>
-        public static string Image {
+        internal static string Image {
             get {
                 return ResourceManager.GetString("Image", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to leave the page and lose your changes?.
+        /// </summary>
+        internal static string LeaveAndLosseChanged {
+            get {
+                return ResourceManager.GetString("LeaveAndLosseChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading....
         /// </summary>
-        public static string Loading {
+        internal static string Loading {
             get {
                 return ResourceManager.GetString("Loading", resourceCulture);
             }
@@ -171,7 +189,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to New.
         /// </summary>
-        public static string New {
+        internal static string New {
             get {
                 return ResourceManager.GetString("New", resourceCulture);
             }
@@ -180,16 +198,25 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to No records to show....
         /// </summary>
-        public static string NoRecords {
+        internal static string NoRecords {
             get {
                 return ResourceManager.GetString("NoRecords", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Record created succesfully.
+        /// </summary>
+        internal static string RecordCreatedOk {
+            get {
+                return ResourceManager.GetString("RecordCreatedOk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record deleted succesfully.
         /// </summary>
-        public static string RecordDeletedOk {
+        internal static string RecordDeletedOk {
             get {
                 return ResourceManager.GetString("RecordDeletedOk", resourceCulture);
             }
@@ -198,7 +225,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Record saved succesfully.
         /// </summary>
-        public static string RecordSavedOk {
+        internal static string RecordSavedOk {
             get {
                 return ResourceManager.GetString("RecordSavedOk", resourceCulture);
             }
@@ -207,7 +234,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Return.
         /// </summary>
-        public static string Return {
+        internal static string Return {
             get {
                 return ResourceManager.GetString("Return", resourceCulture);
             }
@@ -216,34 +243,25 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Save Changes.
         /// </summary>
-        public static string SaveChanges {
+        internal static string SaveChanges {
             get {
                 return ResourceManager.GetString("SaveChanges", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soccer predictions app.
+        ///   Looks up a localized string similar to Soccer prediction app.
         /// </summary>
-        public static string Subtitle {
+        internal static string Subtitle {
             get {
                 return ResourceManager.GetString("Subtitle", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Soccer prediction app.
-        /// </summary>
-        public static string Subtitle1 {
-            get {
-                return ResourceManager.GetString("Subtitle1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Teams.
         /// </summary>
-        public static string Teams {
+        internal static string Teams {
             get {
                 return ResourceManager.GetString("Teams", resourceCulture);
             }
@@ -252,7 +270,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Fantasy.
         /// </summary>
-        public static string Title {
+        internal static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
             }
@@ -261,7 +279,7 @@ namespace Fantasy.Frontend.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Yes.
         /// </summary>
-        public static string Yes {
+        internal static string Yes {
             get {
                 return ResourceManager.GetString("Yes", resourceCulture);
             }
