@@ -147,9 +147,6 @@
   <data name="New" xml:space="preserve">
     <value>Nuevo</value>
   </data>
-  <data name="Country" xml:space="preserve">
-    <value>País</value>
-  </data>
   <data name="Confirmation" xml:space="preserve">
     <value>Confirmación</value>
   </data>
@@ -190,10 +187,10 @@
     <value>Registro no encontrado.</value>
   </data>
   <data name="ERR002" xml:space="preserve">
-    <value>No se puede borrar, porque tiene registros relacionados.</value>
+    <value>No se puede borrar, porque tiene registros relacionados</value>
   </data>
   <data name="ERR003" xml:space="preserve">
-    <value>Ya existe el registro que estas intentando crear.</value>
+    <value>Ya existe el registro que estas intentando crear</value>
   </data>
   <data name="Team" xml:space="preserve">
     <value>Equipo</value>
@@ -205,10 +202,10 @@
     <value>El campo {0} es obligatorio.</value>
   </data>
   <data name="ERR004" xml:space="preserve">
-    <value>El código del país no es válido.</value>
+    <value>El código del país no es válido</value>
   </data>
   <data name="ERR005" xml:space="preserve">
-    <value>El código del equipo no es válido.</value>
+    <value>El código del equipo no es válido</value>
   </data>
   <data name="Teams" xml:space="preserve">
     <value>Equipos</value>
@@ -274,7 +271,7 @@
     <value>Contraseña</value>
   </data>
   <data name="LengthField" xml:space="preserve">
-    <value>El campo {0} debe tener entre {2} y {1} carácteres.</value>
+    <value>El campo {0} debe tener entre {2} y {1} carácteres</value>
   </data>
   <data name="PasswordAndConfirmationDifferent" xml:space="preserve">
     <value>La contraseña y la confirmación no son iguales.</value>
@@ -292,7 +289,7 @@
     <value>El campo {0} debe tener al menos {1} carácteres.</value>
   </data>
   <data name="ERR006" xml:space="preserve">
-    <value>Email o contraseña incorrectos.</value>
+    <value>Email o contraseña incorrectos</value>
   </data>
   <data name="Hello" xml:space="preserve">
     <value>Hola</value>
@@ -331,7 +328,7 @@
     <value>Confirmación de email</value>
   </data>
   <data name="ConfirmEmailMessage" xml:space="preserve">
-    <value>Presione el botón para confirmar su cuenta.</value>
+    <value>Presione el botón para confirmar su cuenta</value>
   </data>
   <data name="AdminRegister" xml:space="preserve">
     <value>Registro de Administrador</value>
@@ -346,7 +343,7 @@
     <value>Número de teléfono</value>
   </data>
   <data name="EmailAlreadyExists" xml:space="preserve">
-    <value>El correo que ingresaste ya existe.</value>
+    <value>El correo que ingresaste ya existe</value>
   </data>
   <data name="Send" xml:space="preserve">
     <value>Enviar</value>
@@ -394,7 +391,7 @@
     <value>Comentarios</value>
   </data>
   <data name="ERR009" xml:space="preserve">
-    <value>El código de torneo no es válido.</value>
+    <value>El código de torneo no es válido</value>
   </data>
   <data name="TournamentActive" xml:space="preserve">
     <value>El torneo está activo</value>
@@ -433,13 +430,13 @@
     <value>Goles del Visitante</value>
   </data>
   <data name="ERR010" xml:space="preserve">
-    <value>El código del equipo local no es válido.</value>
+    <value>El código del equipo local no es válido</value>
   </data>
   <data name="ERR011" xml:space="preserve">
-    <value>El código del equipo visitante no es válido.</value>
+    <value>El código del equipo visitante no es válido</value>
   </data>
   <data name="ERR012" xml:space="preserve">
-    <value>El código del partido no es válido.</value>
+    <value>El código del partido no es válido</value>
   </data>
   <data name="AddMatchToTournament" xml:space="preserve">
     <value>Adicionar partido a torneo</value>
@@ -487,16 +484,16 @@
     <value>Confirmado</value>
   </data>
   <data name="ERR013" xml:space="preserve">
-    <value>El código de usuario no es válido.</value>
+    <value>El código de usuario no es válido</value>
   </data>
   <data name="ERR014" xml:space="preserve">
-    <value>El código del grupo no es válido.</value>
+    <value>El código del grupo no es válido</value>
   </data>
   <data name="ERR015" xml:space="preserve">
-    <value>El códio de usario grupo no es válido.</value>
+    <value>El códio de usario grupo no es válido</value>
   </data>
   <data name="ERR016" xml:space="preserve">
-    <value>El código de la predicción no es válido.</value>
+    <value>El código de la predicción no es válido</value>
   </data>
   <data name="Points" xml:space="preserve">
     <value>Puntos</value>
@@ -526,9 +523,12 @@
     <value>-- Seleccione un Torneo --</value>
   </data>
   <data name="GroupCreated" xml:space="preserve">
-    <value>Se ha creado el grupo: {0}, con el código: {1}, por favor envíe el código del grupo a las personas que deseen uniserse a este grupo.</value>
+    <value>Se ha creado el grupo: {0}, con el código: {1}, por favor envíe el código del grupo a las personas que deseen unirse a este grupo</value>
   </data>
   <data name="Active" xml:space="preserve">
     <value>Activo</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Pais</value>
   </data>
 </root>

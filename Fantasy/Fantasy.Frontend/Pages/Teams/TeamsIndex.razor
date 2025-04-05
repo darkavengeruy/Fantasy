@@ -11,8 +11,9 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>@Localizer["Teams"]</th>
-                    <th>@Localizer["Image"]</th>
+                    <th>@Localizer["Team"]</th>
+                    <th>#@Localizer["Image"]</th>                    
+                    <th>#@Localizer["Country"]</th>
                     <th></th>
                 </tr>
             </thead>
@@ -20,15 +21,12 @@
                 @foreach (var team in Teams!)
                 {
                     <tr>
+                        <td>@team.Name</td>
+                        <td><img src="@team.ImageFull" style="width:90px; height:60px;" /></td>                        
+                        <td>@team.Country!.Name</td>
                         <td>
-                            @team.Name
-                        </td>
-                        <td>
-                            @team.Image
-                        </td>
-                        <td>
-                            <a class="btn btn-warning">@Localizer["Edit"]</a>
-                            <button class="btn btn-danger">@Localizer["Delete"]</button>
+                            <a class="btn btn-warning" href="/teams/edit/@team.Id">@Localizer["Edit"]</a>
+                            <button class="btn btn-danger" @onclick=@(() => DeleteAsync(team))>@Localizer["Delete"]</button>
                         </td>
                     </tr>
                 }
@@ -36,3 +34,10 @@
         </table>
     </Body>
 </GenericList>
+
+    
+}
+
+
+
+

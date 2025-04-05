@@ -201,7 +201,13 @@
   <data name="RequiredField" xml:space="preserve">
     <value>El campo {0} es obligatorio</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
   <data name="Country" xml:space="preserve">
     <value>Pais</value>
+  </data>
+  <data name="Teams" xml:space="preserve">
+    <value>Equipos</value>
   </data>
 </root>

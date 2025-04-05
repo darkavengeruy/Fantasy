@@ -1,7 +1,7 @@
-﻿using Fantasy.Shared.Resources;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using Fantasy.Shared.Resources;
 
-namespace Fantasy.Shared.Entities;
+namespace Fantasy.Shared.Entites;
 
 public class Team
 {
@@ -17,4 +17,6 @@ public class Team
     public Country? Country { get; set; }
 
     public int CountryId { get; set; }
+
+    public string ImageFull => string.IsNullOrEmpty(Image) ? "/images/NoImage.png" : Image;
 }

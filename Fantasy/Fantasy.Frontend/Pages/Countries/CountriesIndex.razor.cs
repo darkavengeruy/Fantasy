@@ -2,7 +2,7 @@ using System.Net;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Fantasy.Frontend.Repositories;
 using Fantasy.Frontend.Resources;
-using Fantasy.Shared.Entities;
+using Fantasy.Shared.Entites;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 
@@ -75,6 +75,6 @@ public partial class CountriesIndex
             Timer = 3000,
             ConfirmButtonText = Localizer["Yes"]
         });
-        toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordDeletedOk"]);
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordDeletedOk"]);
     }
 }

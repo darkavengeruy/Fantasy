@@ -241,7 +241,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Press the button to confirm your account..
+        ///   Looks up a localized string similar to Press the button to confirm your account.
         /// </summary>
         public static string ConfirmEmailMessage {
             get {
@@ -358,7 +358,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The email you entered already exists..
+        ///   Looks up a localized string similar to The email you entered already exists.
         /// </summary>
         public static string EmailAlreadyExists {
             get {
@@ -376,7 +376,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cannot be deleted because it has related records..
+        ///   Looks up a localized string similar to Cannot be deleted because it has related records.
         /// </summary>
         public static string ERR002 {
             get {
@@ -385,7 +385,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The record you are trying to create already exists..
+        ///   Looks up a localized string similar to The record you are trying to create already exists.
         /// </summary>
         public static string ERR003 {
             get {
@@ -394,7 +394,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The country Id is not valid..
+        ///   Looks up a localized string similar to The country Id is not valid.
         /// </summary>
         public static string ERR004 {
             get {
@@ -403,7 +403,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The team Id is not valid..
+        ///   Looks up a localized string similar to The team Id is not valid.
         /// </summary>
         public static string ERR005 {
             get {
@@ -412,7 +412,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Incorrect email or password..
+        ///   Looks up a localized string similar to Incorrect email or password.
         /// </summary>
         public static string ERR006 {
             get {
@@ -448,7 +448,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The local Id is not valid..
+        ///   Looks up a localized string similar to The local Id is not valid.
         /// </summary>
         public static string ERR010 {
             get {
@@ -457,7 +457,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The visitor Id is not valid..
+        ///   Looks up a localized string similar to The visitor Id is not valid.
         /// </summary>
         public static string ERR011 {
             get {
@@ -466,7 +466,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The match Id is not valid..
+        ///   Looks up a localized string similar to The match Id is not valid.
         /// </summary>
         public static string ERR012 {
             get {
@@ -475,7 +475,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The user Id is not valid..
+        ///   Looks up a localized string similar to The user Id is not valid.
         /// </summary>
         public static string ERR013 {
             get {
@@ -484,7 +484,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The group Id is not valid..
+        ///   Looks up a localized string similar to The group Id is not valid.
         /// </summary>
         public static string ERR014 {
             get {
@@ -493,7 +493,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The user group is not valid..
+        ///   Looks up a localized string similar to The user group is not valid.
         /// </summary>
         public static string ERR015 {
             get {
@@ -502,7 +502,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The prediction Id is not valid..
+        ///   Looks up a localized string similar to The prediction Id is not valid.
         /// </summary>
         public static string ERR016 {
             get {
@@ -574,7 +574,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Group: {0} has been created, with code: {1}, please send the group code to people who want to join this group. .
+        ///   Looks up a localized string similar to Group: {0} has been created, with code: {1}, please send the group code to people who want to join this group.
         /// </summary>
         public static string GroupCreated {
             get {
@@ -673,7 +673,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Field {0} must be between {2} and {1} characters..
+        ///   Looks up a localized string similar to Field {0} must be between {2} and {1} characters.
         /// </summary>
         public static string LengthField {
             get {

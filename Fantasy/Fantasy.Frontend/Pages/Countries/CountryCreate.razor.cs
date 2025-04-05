@@ -1,7 +1,7 @@
 using CurrieTechnologies.Razor.SweetAlert2;
 using Fantasy.Frontend.Repositories;
 using Fantasy.Frontend.Resources;
-using Fantasy.Shared.Entities;
+using Fantasy.Shared.Entites;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 

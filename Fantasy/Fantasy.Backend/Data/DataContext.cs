@@ -1,4 +1,4 @@
-﻿using Fantasy.Shared.Entities;
+﻿using Fantasy.Shared.Entites;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fantasy.Backend.Data;
