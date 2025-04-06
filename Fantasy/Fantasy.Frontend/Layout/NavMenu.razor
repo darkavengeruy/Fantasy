@@ -1,4 +1,4 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@* <div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">@Localizer["Title"]</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -25,4 +25,22 @@
             </NavLink>
         </div>
     </nav>
-</div>
+</div> *@
+
+<MudNavMenu>
+    <MudNavLink Href="/" Match="NavLinkMatch.All" Icon="@Icons.Material.Rounded.Home">
+        @Localizer["Home"]
+    </MudNavLink>
+    <MudDivider />
+    <MudNavLink Href="/countries" Icon="@Icons.Material.Filled.Public">
+        @Localizer["Countries"]
+    </MudNavLink>
+    <MudDivider />
+    <MudNavLink Href="/teams" Icon="@Icons.Material.Filled.Groups">
+        @Localizer["Teams"]
+    </MudNavLink>
+    <MudDivider />
+    <MudNavLink Href="/about" Icon="@Icons.Material.Filled.Info">
+        @Localizer["About"]
+    </MudNavLink>
+</MudNavMenu>
