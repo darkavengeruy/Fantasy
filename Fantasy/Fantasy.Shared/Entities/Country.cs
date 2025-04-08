@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Fantasy.Shared.Resources;
 
-namespace Fantasy.Shared.Entites;
+namespace Fantasy.Shared.Entities;
 
 public class Country
 {
@@ -15,4 +15,6 @@ public class Country
     public ICollection<Team>? Teams { get; set; }
 
     public int TeamsCount => Teams == null ? 0 : Teams.Count;
+    public ICollection<User>? Users { get; set; }
+    public int UsersCount => Users == null ? 0 : Users.Count;
 }

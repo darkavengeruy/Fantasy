@@ -1,83 +1,151 @@
-using CurrieTechnologies.Razor.SweetAlert2;
 using Fantasy.Frontend.Repositories;
-using Fantasy.Frontend.Resources;
-using Fantasy.Shared.Entites;
+using Fantasy.Frontend.Shared;
+using Fantasy.Shared.Entities;
+using Fantasy.Shared.Resources;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
+using MudBlazor;
 using System.Net;
 
-namespace Fantasy.Frontend.Pages.Teams
+namespace Fantasy.Frontend.Pages.Teams;
+
+//[Authorize(Roles = "Admin")]
+public partial class TeamsIndex
 {
-    public partial class TeamsIndex
+    private List<Team>? Teams { get; set; }
+    private MudTable<Team> table = new();
+    private readonly int[] pageSizeOptions = { 10, 25, 50, int.MaxValue };
+    private int totalRecords = 0;
+    private bool loading;
+    private const string baseUrl = "api/teams";
+    private string infoFormat = "{first_item}-{last_item} => {all_items}";
+
+    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
+    [Inject] private IRepository Repository { get; set; } = null!;
+    [Inject] private IDialogService DialogService { get; set; } = null!;
+    [Inject] private ISnackbar Snackbar { get; set; } = null!;
+    [Inject] private NavigationManager NavigationManager { get; set; } = null!;
+
+    [Parameter, SupplyParameterFromQuery] public string Filter { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
     {
-        [Inject] private IRepository Repository { get; set; } = null!;
-        [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
-        [Inject] private NavigationManager NavigationManager { get; set; } = null!;
-        [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
+        await LoadTotalRecordsAsync();
+    }
 
-        private List<Team>? Teams { get; set; }
+    private async Task LoadTotalRecordsAsync()
+    {
+        loading = true;
+        var url = $"{baseUrl}/totalRecordsPaginated";
 
-        protected override async Task OnInitializedAsync()
+        if (!string.IsNullOrWhiteSpace(Filter))
         {
-            await LoadAsync();
+            url += $"?filter={Filter}";
         }
 
-        private async Task LoadAsync()
+        var responseHttp = await Repository.GetAsync<int>(url);
+        if (responseHttp.Error)
         {
-            var responseHppt = await Repository.GetAsync<List<Team>>("api/teams");
-            if (responseHppt.Error)
-            {
-                var message = await responseHppt.GetErrorMessageAsync();
-                await SweetAlertService.FireAsync(Localizer["Error"], message, SweetAlertIcon.Error);
-                return;
-            }
-            Teams = responseHppt.Response!;
+            var message = await responseHttp.GetErrorMessageAsync();
+            Snackbar.Add(Localizer[message!], Severity.Error);
+            return;
         }
 
-        private async Task DeleteAsync(Team team)
+        totalRecords = responseHttp.Response;
+        loading = false;
+    }
+
+    private async Task<TableData<Team>> LoadListAsync(TableState state, CancellationToken cancellationToken)
+    {
+        int page = state.Page + 1;
+        int pageSize = state.PageSize;
+        var url = $"{baseUrl}/paginated/?page={page}&recordsnumber={pageSize}";
+
+        if (!string.IsNullOrWhiteSpace(Filter))
         {
-            var result = await SweetAlertService.FireAsync(new SweetAlertOptions
-            {
-                Title = Localizer["Confirmation"],
-                Text = string.Format(Localizer["DeleteConfirm"],
-                Localizer["Team"], team.Name),
-                Icon = SweetAlertIcon.Question,
-                ShowCancelButton = true,
-                CancelButtonText = Localizer["Cancel"]
-            });
-
-            var confirm = string.IsNullOrEmpty(result.Value);
-
-            if (confirm)
-            {
-                return;
-            }
-
-            var responseHttp = await Repository.DeleteAsync($"api/teams/{team.Id}");
-            if (responseHttp.Error)
-            {
-                if (responseHttp.HttpResponseMessage.StatusCode == HttpStatusCode.NotFound)
-                {
-                    NavigationManager.NavigateTo("/");
-                }
-                else
-                {
-                    var messageError = await responseHttp.GetErrorMessageAsync();
-                    await SweetAlertService.FireAsync(Localizer["Error"], Localizer[messageError!], SweetAlertIcon.Error);
-                }
-                return;
-            }
-
-            await LoadAsync();
-            var toast = SweetAlertService.Mixin(new SweetAlertOptions
-            {
-                Toast = true,
-                Position = SweetAlertPosition.BottomEnd,
-                ShowConfirmButton = true,
-                Timer = 3000,
-                ConfirmButtonText = Localizer["Yes"]
-            });
-            await toast.FireAsync(icon: SweetAlertIcon.Success, message: Localizer["RecordDeletedOk"]);
+            url += $"&filter={Filter}";
         }
+
+        var responseHttp = await Repository.GetAsync<List<Team>>(url);
+        if (responseHttp.Error)
+        {
+            var message = await responseHttp.GetErrorMessageAsync();
+            Snackbar.Add(Localizer[message!], Severity.Error);
+            return new TableData<Team> { Items = [], TotalItems = 0 };
+        }
+        if (responseHttp.Response == null)
+        {
+            return new TableData<Team> { Items = [], TotalItems = 0 };
+        }
+        return new TableData<Team>
+        {
+            Items = responseHttp.Response,
+            TotalItems = totalRecords
+        };
+    }
+
+    private async Task SetFilterValue(string value)
+    {
+        Filter = value;
+        await LoadTotalRecordsAsync();
+        await table.ReloadServerData();
+    }
+
+    private async Task ShowModalAsync(int id = 0, bool isEdit = false)
+    {
+        var options = new DialogOptions() { CloseOnEscapeKey = true, CloseButton = true };
+        IDialogReference? dialog;
+        if (isEdit)
+        {
+            var parameters = new DialogParameters
+            {
+                { "Id", id }
+            };
+            dialog = DialogService.Show<TeamEdit>($"{Localizer["Edit"]} {Localizer["Team"]}", parameters, options);
+        }
+        else
+        {
+            dialog = DialogService.Show<TeamCreate>($"{Localizer["New"]} {Localizer["Team"]}", options);
+        }
+
+        var result = await dialog.Result;
+        if (result!.Canceled)
+        {
+            await LoadTotalRecordsAsync();
+            await table.ReloadServerData();
+        }
+    }
+
+    private async Task DeleteAsync(Team team)
+    {
+        var parameters = new DialogParameters
+        {
+            { "Message", string.Format(Localizer["DeleteConfirm"], Localizer["Team"], team.Name) }
+        };
+        var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall, CloseOnEscapeKey = true };
+        var dialog = DialogService.Show<ConfirmDialog>(Localizer["Confirmation"], parameters, options);
+        var result = await dialog.Result;
+        if (result!.Canceled)
+        {
+            return;
+        }
+
+        var responseHttp = await Repository.DeleteAsync($"{baseUrl}/{team.Id}");
+        if (responseHttp.Error)
+        {
+            if (responseHttp.HttpResponseMessage.StatusCode == HttpStatusCode.NotFound)
+            {
+                NavigationManager.NavigateTo("/teams");
+            }
+            else
+            {
+                var message = await responseHttp.GetErrorMessageAsync();
+                Snackbar.Add(Localizer[message!], Severity.Error);
+            }
+            return;
+        }
+        await LoadTotalRecordsAsync();
+        await table.ReloadServerData();
+        Snackbar.Add(Localizer["RecordDeletedOk"], Severity.Success);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Fantasy.Shared.Resources;
 
-namespace Fantasy.Shared.Entites;
+namespace Fantasy.Shared.Entities;
 
 public class Team
 {

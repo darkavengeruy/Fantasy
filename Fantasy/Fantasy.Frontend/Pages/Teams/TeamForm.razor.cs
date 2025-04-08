@@ -1,7 +1,7 @@
 using CurrieTechnologies.Razor.SweetAlert2;
 using Fantasy.Frontend.Repositories;
 using Fantasy.Shared.DTOs;
-using Fantasy.Shared.Entites;
+using Fantasy.Shared.Entities;
 using Fantasy.Shared.Resources;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -13,11 +13,13 @@ namespace Fantasy.Frontend.Pages.Teams;
 public partial class TeamForm
 {
     private EditContext editContext = null!;
+    private Country selectedCountry = new();
+    private List<Country>? countries;
+    private string? imageUrl;
 
-    protected override void OnInitialized()
-    {
-        editContext = new(TeamDTO);
-    }
+    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
+    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
+    [Inject] private IRepository Repository { get; set; } = null!;
 
     [EditorRequired, Parameter] public TeamDTO TeamDTO { get; set; } = null!;
     [EditorRequired, Parameter] public EventCallback OnValidSubmit { get; set; }
@@ -25,12 +27,10 @@ public partial class TeamForm
 
     public bool FormPostedSuccessfully { get; set; } = false;
 
-    [Inject] private SweetAlertService SweetAlertService { get; set; } = null!;
-    [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
-    [Inject] private IRepository Repository { get; set; } = null!;
-
-    private List<Country>? countries;
-    private string? imageURL;
+    protected override void OnInitialized()
+    {
+        editContext = new(TeamDTO);
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -42,14 +42,14 @@ public partial class TeamForm
         base.OnParametersSet();
         if (!string.IsNullOrEmpty(TeamDTO.Image))
         {
-            imageURL = TeamDTO.Image;
+            imageUrl = TeamDTO.Image;
             TeamDTO.Image = null;
         }
     }
 
     private async Task LoadCountriesAsync()
     {
-        var responseHttp = await Repository.GetAsync<List<Country>>("api/countries/combo");
+        var responseHttp = await Repository.GetAsync<List<Country>>("/api/countries/combo");
         if (responseHttp.Error)
         {
             var message = await responseHttp.GetErrorMessageAsync();
@@ -60,10 +60,10 @@ public partial class TeamForm
         countries = responseHttp.Response;
     }
 
-    private void ImageSelected(string imageBase64)
+    private void ImageSelected(string imagenBase64)
     {
-        TeamDTO.Image = imageBase64;
-        imageURL = null;
+        TeamDTO.Image = imagenBase64;
+        imageUrl = null;
     }
 
     private async Task OnBeforeInternalNavigation(LocationChangingContext context)
@@ -91,5 +91,24 @@ public partial class TeamForm
         }
 
         context.PreventNavigation();
+    }
+
+    private async Task<IEnumerable<Country>> SearchCountry(string searchText, CancellationToken cancellationToken)
+    {
+        await Task.Delay(5);
+        if (string.IsNullOrWhiteSpace(searchText))
+        {
+            return countries!;
+        }
+
+        return countries!
+            .Where(x => x.Name.Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
+            .ToList();
+    }
+
+    private void CountryChanged(Country country)
+    {
+        selectedCountry = country;
+        TeamDTO.CountryId = country.Id;
     }
 }

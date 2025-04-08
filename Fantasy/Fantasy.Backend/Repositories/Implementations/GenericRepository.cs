@@ -101,6 +101,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public virtual async Task<ActionResponse<T>> UpdateAsync(T entity)
     {
+        _context.Update(entity);
         try
         {
             await _context.SaveChangesAsync();
@@ -110,7 +111,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
                 Result = entity
             };
         }
-        catch (DbUpdateConcurrencyException)
+        catch (DbUpdateException)
         {
             return DbUpdateExceptionActionResponse();
         }

@@ -1,5 +1,5 @@
 ﻿using Fantasy.Backend.Helpers;
-using Fantasy.Shared.Entites;
+using Fantasy.Shared.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Fantasy.Backend.Data;

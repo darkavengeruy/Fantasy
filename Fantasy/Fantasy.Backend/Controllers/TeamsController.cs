@@ -1,6 +1,6 @@
 ﻿using Fantasy.Backend.UnitOfWork.Interfaces;
 using Fantasy.Shared.DTOs;
-using Fantasy.Shared.Entites;
+using Fantasy.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Fantasy.Backend.Controllers;
@@ -36,6 +36,28 @@ public class TeamsController : GenericController<Team>
             return Ok(response.Result);
         }
         return NotFound(response.Message);
+    }
+
+    [HttpGet("paginated")]
+    public override async Task<IActionResult> GetAsync(PaginationDTO pagination)
+    {
+        var response = await _teamsUnitOfWork.GetAsync(pagination);
+        if (response.WasSuccess)
+        {
+            return Ok(response.Result);
+        }
+        return BadRequest();
+    }
+
+    [HttpGet("totalRecordsPaginated")]
+    public async Task<IActionResult> GetTotalRecordsAsync([FromQuery] PaginationDTO pagination)
+    {
+        var action = await _teamsUnitOfWork.GetTotalRecordsAsync(pagination);
+        if (action.WasSuccess)
+        {
+            return Ok(action.Result);
+        }
+        return BadRequest();
     }
 
     [HttpGet("combo/{countryId:int}")]
