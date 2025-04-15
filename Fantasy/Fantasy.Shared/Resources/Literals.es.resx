@@ -175,13 +175,13 @@
     <value>¿Está seguro de borrar el {0}: {1}?</value>
   </data>
   <data name="RecordDeletedOk" xml:space="preserve">
-    <value>Registro borrado con éxito.</value>
+    <value>Registro borrado con éxito</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sí</value>
   </data>
   <data name="RecordCreatedOk" xml:space="preserve">
-    <value>Regisro creado con éxito.</value>
+    <value>Regisro creado con éxito</value>
   </data>
   <data name="ERR001" xml:space="preserve">
     <value>Registro no encontrado.</value>
@@ -298,13 +298,13 @@
     <value>Cerrar Sesión</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Regitrarse como nuevo usuario</value>
+    <value>Registrarse como nuevo usuario</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Iniciar Sesión</value>
   </data>
   <data name="NotUserYet" xml:space="preserve">
-    <value>¿No eres usuario aún? Resgitrate aquí</value>
+    <value>¿No eres usuario aún? Registrate aquí</value>
   </data>
   <data name="LogoutConfirm" xml:space="preserve">
     <value>¿Estás seguro que deseas cerrar sesión?</value>
