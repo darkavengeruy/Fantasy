@@ -175,13 +175,13 @@
     <value>Are you sure to delete the {0}: {1}?</value>
   </data>
   <data name="RecordDeletedOk" xml:space="preserve">
-    <value>Record deleted successfully.</value>
+    <value>Record deleted successfully</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
   <data name="RecordCreatedOk" xml:space="preserve">
-    <value>Record created successfully.</value>
+    <value>Record created successfully</value>
   </data>
   <data name="ERR001" xml:space="preserve">
     <value>Record not found.</value>

@@ -315,15 +315,6 @@
   <data name="ERR004" xml:space="preserve">
     <value>Record not found.</value>
   </data>
-  <data name="ERR004" xml:space="preserve">
-    <value>Cannot be deleted because it has related records</value>
-  </data>
-  <data name="ERR004" xml:space="preserve">
-    <value>The record you are trying to create already exists</value>
-  </data>
-  <data name="ERR004" xml:space="preserve">
-    <value>The country Id is not valid</value>
-  </data>
   <data name="ERR005" xml:space="preserve">
     <value>The team Id is not valid</value>
   </data>
@@ -519,15 +510,6 @@
   <data name="Points" xml:space="preserve">
     <value>Points</value>
   </data>
-  <data name="RecordCreatedOk1" xml:space="preserve">
-    <value>Record created successfully.</value>
-  </data>
-  <data name="RecordDeletedOk1" xml:space="preserve">
-    <value>Record deleted successfully.</value>
-  </data>
-  <data name="RecordSavedOk1" xml:space="preserve">
-    <value>Record saved successfully.</value>
-  </data>
   <data name="RecordsNumber" xml:space="preserve">
     <value>RecordsNumber</value>
   </data>
@@ -539,9 +521,6 @@
   </data>
   <data name="Remarks" xml:space="preserve">
     <value>Remarks</value>
-  </data>
-  <data name="RequiredField1" xml:space="preserve">
-    <value>Field {0} is required.</value>
   </data>
   <data name="ResendAccountActivationEmail" xml:space="preserve">
     <value>Resend account activation email</value>

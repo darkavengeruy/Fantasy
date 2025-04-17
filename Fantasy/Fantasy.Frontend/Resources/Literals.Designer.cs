@@ -466,7 +466,7 @@ namespace Fantasy.Frontend.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The country Id is not valid.
+        ///   Looks up a localized string similar to Record not found..
         /// </summary>
         public static string ERR004 {
             get {
@@ -1150,15 +1150,6 @@ namespace Fantasy.Frontend.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Record created successfully..
-        /// </summary>
-        public static string RecordCreatedOk1 {
-            get {
-                return ResourceManager.GetString("RecordCreatedOk1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Record deleted succesfully.
         /// </summary>
         public static string RecordDeletedOk {
@@ -1168,29 +1159,11 @@ namespace Fantasy.Frontend.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Record deleted successfully..
-        /// </summary>
-        public static string RecordDeletedOk1 {
-            get {
-                return ResourceManager.GetString("RecordDeletedOk1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Record saved succesfully.
         /// </summary>
         public static string RecordSavedOk {
             get {
                 return ResourceManager.GetString("RecordSavedOk", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Record saved successfully..
-        /// </summary>
-        public static string RecordSavedOk1 {
-            get {
-                return ResourceManager.GetString("RecordSavedOk1", resourceCulture);
             }
         }
         
@@ -1236,15 +1209,6 @@ namespace Fantasy.Frontend.Resources {
         public static string RequiredField {
             get {
                 return ResourceManager.GetString("RequiredField", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Field {0} is required..
-        /// </summary>
-        public static string RequiredField1 {
-            get {
-                return ResourceManager.GetString("RequiredField1", resourceCulture);
             }
         }
         

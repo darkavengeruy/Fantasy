@@ -4,6 +4,7 @@ using Fantasy.Backend.Repositories.Implementations;
 using Fantasy.Backend.Repositories.Interfaces;
 using Fantasy.Backend.UnitOfWork.Implementations;
 using Fantasy.Backend.UnitOfWork.Interfaces;
+using Fantasy.Backend.UnitsOfWork.Interfaces;
 using Fantasy.Shared.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -68,12 +69,17 @@ builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();
 
 builder.Services.AddIdentity<User, IdentityRole>(x =>
 {
+    x.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
+    x.SignIn.RequireConfirmedEmail = true;
     x.User.RequireUniqueEmail = true;
     x.Password.RequireDigit = false;
     x.Password.RequiredUniqueChars = 0;
     x.Password.RequireLowercase = false;
     x.Password.RequireNonAlphanumeric = false;
     x.Password.RequireUppercase = false;
+    x.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(5);
+    x.Lockout.MaxFailedAccessAttempts = 3;
+    x.Lockout.AllowedForNewUsers = true;
 })
     .AddEntityFrameworkStores<DataContext>()
     .AddDefaultTokenProviders();
@@ -88,6 +94,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["jwtKey"]!)),
         ClockSkew = TimeSpan.Zero
     });
+
+builder.Services.AddScoped<IMailHelper, MailHelper>();
 
 var app = builder.Build();
 SeedData(app);

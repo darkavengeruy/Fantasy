@@ -1,5 +1,5 @@
 ﻿using Fantasy.Backend.Helpers;
-using Fantasy.Backend.UnitOfWork.Interfaces;
+using Fantasy.Backend.UnitsOfWork.Interfaces;
 using Fantasy.Shared.Entities;
 using Fantasy.Shared.Enums;
 using Microsoft.EntityFrameworkCore;
@@ -30,8 +30,8 @@ public class SeedDb
 
     private async Task CheckRolesAsync()
     {
-        await _usersUnitOfWork.CheckRoleAsysnc(UserType.Admin.ToString());
-        await _usersUnitOfWork.CheckRoleAsysnc(UserType.User.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.Admin.ToString());
+        await _usersUnitOfWork.CheckRoleAsync(UserType.User.ToString());
     }
 
     private async Task<User> CheckUserAsync(string firstName, string lastName, string email, string phone, UserType userType)
@@ -53,6 +53,9 @@ public class SeedDb
 
             await _usersUnitOfWork.AddUserAsync(user, "123456");
             await _usersUnitOfWork.AddUserToRoleAsync(user, userType.ToString());
+
+            var token = await _usersUnitOfWork.GenerateEmailConfirmationTokenAsync(user);
+            await _usersUnitOfWork.ConfirmEmailAsync(user, token);
         }
 
         return user;

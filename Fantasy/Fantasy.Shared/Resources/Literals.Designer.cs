@@ -988,7 +988,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Record created successfully..
+        ///   Looks up a localized string similar to Record created successfully.
         /// </summary>
         public static string RecordCreatedOk {
             get {
@@ -997,7 +997,7 @@ namespace Fantasy.Shared.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Record deleted successfully..
+        ///   Looks up a localized string similar to Record deleted successfully.
         /// </summary>
         public static string RecordDeletedOk {
             get {
