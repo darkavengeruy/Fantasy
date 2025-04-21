@@ -17,7 +17,7 @@ public class UserDTO : User
     [DataType(DataType.Password)]
     [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Literals))]
     [StringLength(20, MinimumLength = 6, ErrorMessageResourceName = "LengthField", ErrorMessageResourceType = typeof(Literals))]
-    public string? ConfirmPassword { get; set; } = null!;
+    public string? PasswordConfirm { get; set; } = null!;
 
     public string Language { get; set; } = null!;
 }

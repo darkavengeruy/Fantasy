@@ -481,7 +481,7 @@
     <value>Lo sentimos no hay nada en esta ruta.</value>
   </data>
   <data name="NotUserYet" xml:space="preserve">
-    <value>¿No eres usuario aún? Resgitrate aquí</value>
+    <value>¿No eres usuario aún? Registrate aquí</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Contraseña</value>
