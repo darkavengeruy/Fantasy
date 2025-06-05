@@ -19,4 +19,8 @@ public class Team
     public int CountryId { get; set; }
 
     public string ImageFull => string.IsNullOrEmpty(Image) ? "/images/NoImage.png" : Image;
+
+    public ICollection<TournamentTeam>? TournamentTeams { get; set; }
+
+    public int TournamentsCount => TournamentTeams == null ? 0 : TournamentTeams.Count;
 }

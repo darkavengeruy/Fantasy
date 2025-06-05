@@ -7,17 +7,17 @@ namespace Fantasy.Backend.UnitsOfWork.Interfaces;
 
 public interface IUsersUnitOfWork
 {
-    Task<ActionResponse<IEnumerable<User>>> GetAsync(PaginationDTO pagination);
-
-    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
-
     Task<string> GeneratePasswordResetTokenAsync(User user);
 
-    Task<IdentityResult> ResetPasswordAsync(User user, string token, string password);
+    Task<IdentityResult> ResetPasswordAsync(User user, string token, string newPassword);
 
     Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword);
 
     Task<IdentityResult> UpdateUserAsync(User user);
+
+    Task<ActionResponse<IEnumerable<User>>> GetAsync(PaginationDTO pagination);
+
+    Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination);
 
     Task<User> GetUserAsync(Guid userId);
 

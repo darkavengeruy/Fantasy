@@ -19,8 +19,13 @@ public partial class Login
     [Inject] private IRepository Repository { get; set; } = null!;
     [Inject] private ILoginService LoginService { get; set; } = null!;
     [Inject] private IStringLocalizer<Literals> Localizer { get; set; } = null!;
-
     [CascadingParameter] private MudDialogInstance MudDialog { get; set; } = null!;
+
+    private void ShowModalRecoverPassword()
+    {
+        var closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true, MaxWidth = MaxWidth.ExtraLarge };
+        DialogService.Show<RecoverPassword>(Localizer["PasswordRecovery"], closeOnEscapeKey);
+    }
 
     private void CloseModal()
     {

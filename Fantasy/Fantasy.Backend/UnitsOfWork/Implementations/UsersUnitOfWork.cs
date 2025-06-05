@@ -16,6 +16,14 @@ public class UsersUnitOfWork : IUsersUnitOfWork
         _usersRepository = usersRepository;
     }
 
+    public async Task<string> GeneratePasswordResetTokenAsync(User user) => await _usersRepository.GeneratePasswordResetTokenAsync(user);
+
+    public async Task<IdentityResult> ResetPasswordAsync(User user, string token, string password) => await _usersRepository.ResetPasswordAsync(user, token, password);
+
+    public async Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword) => await _usersRepository.ChangePasswordAsync(user, currentPassword, newPassword);
+
+    public async Task<IdentityResult> UpdateUserAsync(User user) => await _usersRepository.UpdateUserAsync(user);
+
     public async Task<IdentityResult> AddUserAsync(User user, string password) => await _usersRepository.AddUserAsync(user, password);
 
     public async Task AddUserToRoleAsync(User user, string roleName) => await _usersRepository.AddUserToRoleAsync(user, roleName);
@@ -36,11 +44,6 @@ public class UsersUnitOfWork : IUsersUnitOfWork
 
     public async Task LogoutAsync() => await _usersRepository.LogoutAsync();
 
-    Task<IdentityResult> IUsersUnitOfWork.ChangePasswordAsync(User user, string currentPassword, string newPassword)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task CheckRoleAsync(string roleName) => await _usersRepository.CheckRoleAsysnc(roleName);
 
     Task<string> IUsersUnitOfWork.GeneratePasswordResetTokenAsync(User user)
@@ -59,11 +62,6 @@ public class UsersUnitOfWork : IUsersUnitOfWork
     }
 
     Task<IdentityResult> IUsersUnitOfWork.ResetPasswordAsync(User user, string token, string password)
-    {
-        throw new NotImplementedException();
-    }
-
-    Task<IdentityResult> IUsersUnitOfWork.UpdateUserAsync(User user)
     {
         throw new NotImplementedException();
     }

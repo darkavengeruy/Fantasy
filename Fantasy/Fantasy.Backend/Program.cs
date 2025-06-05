@@ -4,6 +4,7 @@ using Fantasy.Backend.Repositories.Implementations;
 using Fantasy.Backend.Repositories.Interfaces;
 using Fantasy.Backend.UnitOfWork.Implementations;
 using Fantasy.Backend.UnitOfWork.Interfaces;
+using Fantasy.Backend.UnitsOfWork.Implementations;
 using Fantasy.Backend.UnitsOfWork.Interfaces;
 using Fantasy.Shared.Entities;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -63,6 +64,12 @@ builder.Services.AddScoped<ICountriesUnitOfWork, CountriesUnitOfWork>();
 
 builder.Services.AddScoped<ITeamsRepository, TeamsRepository>();
 builder.Services.AddScoped<ITeamsUnitOfWork, TeamsUnitOfWork>();
+
+builder.Services.AddScoped<ITournamentsRepository, TournamentsRepository>();
+builder.Services.AddScoped<ITournamentsUnitOfWork, TournamentsUnitofWork>();
+
+builder.Services.AddScoped<ITournamentTeamsRepository, TournamentTeamsRepository>();
+builder.Services.AddScoped<ITournamentTeamsUnitOfWork, TournamentTeamsUnitOfWork>();
 
 builder.Services.AddScoped<IUsersRepository, UsersRepository>();
 builder.Services.AddScoped<IUsersUnitOfWork, UsersUnitOfWork>();

@@ -13,7 +13,7 @@ public class MailHelper : IMailHelper
         _configuration = configuration;
     }
 
-    public ActionResponse<string> SendEmail(string toName, string toEmail, string subject, string body, string languaje, bool isHtml = true)
+    public ActionResponse<string> SendMail(string toName, string toEmail, string subject, string body, string languaje, bool isHtml = true)
     {
         try
         {

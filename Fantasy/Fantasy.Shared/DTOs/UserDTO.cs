@@ -10,14 +10,14 @@ public class UserDTO : User
     [Display(Name = "Password", ResourceType = typeof(Literals))]
     [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Literals))]
     [StringLength(20, MinimumLength = 6, ErrorMessageResourceName = "LengthField", ErrorMessageResourceType = typeof(Literals))]
-    public string? Password { get; set; } = null!;
+    public string Password { get; set; } = null!;
 
     [Compare("Password", ErrorMessageResourceName = "PasswordAndConfirmationDifferent", ErrorMessageResourceType = typeof(Literals))]
     [Display(Name = "PasswordConfirm", ResourceType = typeof(Literals))]
     [DataType(DataType.Password)]
     [Required(ErrorMessageResourceName = "RequiredField", ErrorMessageResourceType = typeof(Literals))]
     [StringLength(20, MinimumLength = 6, ErrorMessageResourceName = "LengthField", ErrorMessageResourceType = typeof(Literals))]
-    public string? PasswordConfirm { get; set; } = null!;
+    public string PasswordConfirm { get; set; } = null!;
 
     public string Language { get; set; } = null!;
 }
