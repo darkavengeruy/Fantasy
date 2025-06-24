@@ -21,7 +21,7 @@ public class Tournament
     [Display(Name = "Remarks", ResourceType = typeof(Literals))]
     public string? Remarks { get; set; }
 
-    public string Imagefull => string.IsNullOrEmpty(Image) ? "/images/NoImages.png" : Image;
+    public string ImageFull => string.IsNullOrEmpty(Image) ? "/images/NoImage.png" : Image;
 
     public ICollection<TournamentTeam>? TournamentTeams { get; set; }
 

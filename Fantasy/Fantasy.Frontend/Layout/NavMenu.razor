@@ -4,9 +4,14 @@
 
     <AuthorizeView Roles="Admin">
         <Authorized>
-            <MudNavLink Href="/countries" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Public">@Localizer["Countries"]</MudNavLink>
+            <MudNavLink Href="/countries" Match="NavLinkMatch.Prefix" 
+                Icon="@Icons.Material.Filled.Public">@Localizer["Countries"]</MudNavLink>
             <MudDivider />
-            <MudNavLink Href="/teams" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Groups">@Localizer["Teams"]</MudNavLink>
+            <MudNavLink Href="/teams" Match="NavLinkMatch.Prefix" 
+                Icon="@Icons.Material.Filled.Groups">@Localizer["Teams"]</MudNavLink>
+            <MudDivider />
+            <MudNavLink Href="/tournaments" Match="NavLinkMatch.Prefix" 
+                Icon="@Icons.Material.Filled.Star">@Localizer["Tournaments"]</MudNavLink>
             <MudDivider />            
         </Authorized>        
     </AuthorizeView>

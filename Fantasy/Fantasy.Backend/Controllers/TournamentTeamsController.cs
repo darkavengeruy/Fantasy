@@ -20,7 +20,7 @@ public class TournamentTeamsController : GenericController<TournamentTeam>
         _tournamentTeamsUnitOfWork = tournamentTeamsUnitOfWork;
     }
 
-    [HttpGet("pagination")]
+    [HttpGet("paginated")]
     public override async Task<IActionResult> GetAsync([FromQuery] PaginationDTO pagination)
     {
         var response = await _tournamentTeamsUnitOfWork.GetAsync(pagination);

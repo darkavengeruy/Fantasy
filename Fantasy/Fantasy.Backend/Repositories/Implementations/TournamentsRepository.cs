@@ -23,7 +23,7 @@ public class TournamentsRepository : GenericRepository<Tournament>, ITournaments
     {
         var tournament = new Tournament
         {
-            IsActive = false,
+            IsActive = tournamentDTO.IsActive,
             Name = tournamentDTO.Name,
             Remarks = tournamentDTO.Remarks,
             TournamentTeams = []
@@ -31,7 +31,7 @@ public class TournamentsRepository : GenericRepository<Tournament>, ITournaments
 
         if (!string.IsNullOrEmpty(tournamentDTO.Image))
         {
-            var imageBase64 = Convert.FromBase64String(tournamentDTO.Image);
+            var imageBase64 = Convert.FromBase64String(tournamentDTO.Image!);
             tournament.Image = await _fileStorage.SaveFileAsync(imageBase64, "jpg", "tournaments");
         }
 
@@ -74,7 +74,7 @@ public class TournamentsRepository : GenericRepository<Tournament>, ITournaments
     public override async Task<ActionResponse<IEnumerable<Tournament>>> GetAsync(PaginationDTO pagination)
     {
         var queryable = _context.Tournaments
-            .OrderBy(x => x.Name)
+            .Include(x => x.TournamentTeams)
             .AsQueryable();
 
         if (!string.IsNullOrWhiteSpace(pagination.Filter))
@@ -118,6 +118,7 @@ public class TournamentsRepository : GenericRepository<Tournament>, ITournaments
     public async Task<ActionResponse<int>> GetTotalRecordsAsync(PaginationDTO pagination)
     {
         var queryable = _context.Tournaments.AsQueryable();
+
         if (!string.IsNullOrWhiteSpace(pagination.Filter))
         {
             queryable = queryable.Where(x => x.Name.ToLower().Contains(pagination.Filter.ToLower()));
@@ -145,7 +146,7 @@ public class TournamentsRepository : GenericRepository<Tournament>, ITournaments
 
         if (!string.IsNullOrEmpty(tournamentDTO.Image))
         {
-            var imageBase64 = Convert.FromBase64String(tournamentDTO.Image);
+            var imageBase64 = Convert.FromBase64String(tournamentDTO.Image!);
             currentTeam.Image = await _fileStorage.SaveFileAsync(imageBase64, "jpg", "tournaments");
         }
 
